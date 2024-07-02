@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+.header-logo {
+  width: 100px;
+  padding: 5px;
+  /* border: 2px solid red; */
+}
+.header-logo-img {
+  border-radius: 50px;
+}
+.header {
+  display: flex;
+  gap: 10rem;
+  background-color: grey;
+}
+.header-links li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-links a {
+  text-decoration: none;
+  display: flex;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out
+}
+.list {
+  display: flex;
+  gap: 10rem;
+}
+.header-links {
+  display: flex;
+  justify-content: space-evenly;
+}
+.list a:hover {
+    color: red;
+  }
+  
+  /* Add a hover effect */
+  .list a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #007bff;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+  }
+  
+  .list a:hover::after {
+    width: 100%;
+  }
