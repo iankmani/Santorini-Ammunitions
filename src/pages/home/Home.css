@@ -1,0 +1,82 @@
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+.small-logo-img{
+    width: 100px;
+    padding: 10px;
+    
+
+    
+}
+.small-image{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.hero-section-title{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.hero-section-title h2{
+    font-size: 30px;
+    color: red;
+    letter-spacing: 8px;
+    font-weight: 400;
+}
+.hero-section-description{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+
+}
+.hero-section-description p{
+    font-size: 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.815);
+    
+}
+.two-buttons{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    gap: 10rem;
+    padding: 80px;
+}
+.btn1{
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background-color: rgb(16,16,16);
+    border: 1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease, transform 0.7s ease;
+}
+.btn2{
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+}
+.hero-section{
+    /* border: 2px solid red; */
+    height: 500px;
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../assets/pics/hero-section-shotgun.jpeg);
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-color: rgba(0, 0, 0, 0.5);
+}

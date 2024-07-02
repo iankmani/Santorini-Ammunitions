@@ -22,6 +22,7 @@ svg {
   display: flex;
   gap: 10rem;
   background-color: grey;
+  flex-wrap: wrap;
 }
 .header-links li {
   list-style: none;
