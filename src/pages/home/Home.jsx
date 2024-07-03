@@ -1,6 +1,6 @@
 import React from "react";
 
-// import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 function Home() {
@@ -12,7 +12,7 @@ function Home() {
         </div>
         <div className="hero-section-description">
           <p>
-            At KB, we're your trusted source for top-quality firearms,
+            At SA, we're your trusted source for top-quality firearms,
             accessories, secure storage solutions, maintenance, and professional
             firearm training in Kenya. Our products and services cater to both
             seasoned marksmen and first-time buyers, ensuring you have the
@@ -22,7 +22,10 @@ function Home() {
           </p>
         </div>
         <div className="two-buttons">
-          <button className="btn1">ABOUT US</button>
+          <button className="btn1">
+            {" "}
+            <Link to="/About">About Us</Link>
+          </button>
           <button className="btn2">OUR PRODUCTS</button>
         </div>
       </div>
