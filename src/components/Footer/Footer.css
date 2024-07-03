@@ -52,13 +52,19 @@
 .address-information p {
   font-size: 18px;
 }
-.location-logo-icon {
+/* .location-logo-icon {
   border: 2px solid red;
-}
+} */
 .location {
-  width: 60px;
-  height: 60px;
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
 }
+.location:hover {
+  color: red;
+}
+
 .gun-shop-location h5 {
   letter-spacing: 5px;
   padding: 5px;
