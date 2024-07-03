@@ -4,25 +4,42 @@
   box-sizing: border-box;
 }
 /* Make images easier to work with */
-img,
+/* img,
 picture,
 svg {
   max-width: 100%;
   display: block;
-}
+} */
 .header-logo {
   width: 100px;
   padding: 5px;
+
   /* border: 2px solid red; */
 }
+@media screen and (max-width: 49.375em) {
+  .header-logo {
+    width: 300px;
+  }
+}
+@media screen and (max-width: 32.5em) {
+  .header-logo {
+    width: 500px;
+  }
+}
+
 .header-logo-img {
+  width: 100%;
   border-radius: 50px;
 }
 .header {
   display: flex;
   gap: 10rem;
   background-color: grey;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  /* border: 2px solid red; */
+  /* height: 10rem; */
+  align-items: center;
+  justify-content: start;
 }
 .header-links li {
   list-style: none;
@@ -36,33 +53,35 @@ svg {
   font-size: 20px;
   color: white;
   font-weight: bold;
-  transition: color 0.3s ease-in-out
+  transition: color 0.3s ease-in-out;
 }
 .list {
   display: flex;
-  gap: 10rem;
+  justify-content: space-evenly;
+  gap: 5rem;
+  flex-wrap: wrap;
 }
 .header-links {
   display: flex;
   justify-content: space-evenly;
 }
 .list a:hover {
-    color: red;
-  }
-  
-  /* Add a hover effect */
-  .list a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #007bff;
-    transition: width 0.3s;
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-  }
-  
-  .list a:hover::after {
-    width: 100%;
-  }
+  color: red;
+}
+
+/* Add a hover effect */
+.list a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #007bff;
+  transition: width 0.3s;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+}
+
+.list a:hover::after {
+  width: 100%;
+}

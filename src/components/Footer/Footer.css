@@ -1,0 +1,82 @@
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: rgba(0, 0, 0, 0.74);
+}
+.contact-us h1 {
+  font-weight: 900;
+}
+.phone-information {
+  padding: 5px;
+}
+.phone-information h5 {
+  letter-spacing: 5px;
+  padding: 5px;
+}
+.phone-information p {
+  font-size: 18px;
+}
+.opening-hours-information {
+  padding: 5px;
+}
+.opening-hours-information h5 {
+  letter-spacing: 5px;
+  padding: 5px;
+}
+.opening-hours-information p {
+  font-size: 18px;
+}
+.email-information {
+  padding: 20px;
+  /* border: 2px solid red; */
+  /* display: flex; */
+}
+.email-information h5 {
+  letter-spacing: 5px;
+  padding: 5px;
+}
+.email-information p {
+  font-size: 18px;
+}
+.address-information {
+  /* border: 2px solid red; */
+  padding: 10px;
+  margin: 10px;
+  margin-right: 25px;
+}
+.address-information h5 {
+  letter-spacing: 5px;
+  padding: 5px;
+}
+.address-information p {
+  font-size: 18px;
+}
+.location-logo-icon {
+  border: 2px solid red;
+}
+.location {
+  width: 60px;
+  height: 60px;
+}
+.gun-shop-location h5 {
+  letter-spacing: 5px;
+  padding: 5px;
+}
+.gun-shop-location {
+  padding: 10px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reddish {
+  color: red;
+}
+.greyyish {
+  color: grey;
+}

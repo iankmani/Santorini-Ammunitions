@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderLogo from "../../assets/pics/logologo.jpeg";
 import "./Header.css";
-// import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -13,19 +13,19 @@ const Header = () => {
         <div className="header-links">
           <ol className="list">
             <li>
-              <a href="#">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="#">About Us</a>
+              <Link to="/About">About Us</Link>
             </li>
             <li>
-              <a href="#">SB Shop</a>
+              <Link to="/SBshop">SB Shop</Link>
             </li>
             <li>
-              <a href="#">Services</a>
+              <Link to="/Services">Services</Link>
             </li>
             <li>
-              <a href="#">Contact Us</a>
+              <Link to="/Contact">Contact Us</Link>
             </li>
           </ol>
         </div>
