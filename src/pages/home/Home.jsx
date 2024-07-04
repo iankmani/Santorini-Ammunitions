@@ -2,6 +2,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 import "./Home.css";
+import Form from "../../Parts/Form/Form.jsx";
 
 function Home() {
   return (
@@ -27,7 +28,8 @@ function Home() {
             <Link to="/About">About Us</Link>
           </button>
           <button className="btn2">
-            <Link to="/Sbshop">OUR PRODUCTS</Link></button>
+            <Link to="/Sbshop">OUR PRODUCTS</Link>
+          </button>
         </div>
       </div>
     </div>

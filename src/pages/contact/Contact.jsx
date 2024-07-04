@@ -1,6 +1,6 @@
 import React from "react";
-import './Contact.css'
-
+import "./Contact.css";
+import Form from "../../Parts/Form/Form.jsx";
 
 const Contact = () => {
   return (
@@ -13,21 +13,27 @@ const Contact = () => {
           <h2>Get in Touch</h2>
         </div>
         <div className="contact-form-container">
-          <input type="text" placeholder="Full Name *" /><br />
-          <input type="text" placeholder="Company (if applicable)" /><br />
-          <input type="text" placeholder=" Your Email *" /><br />
-          <input type="text" placeholder="Tel *" /><br />
+          <input type="text" placeholder="Full Name *" />
+
+          <input type="text" placeholder="Company (if applicable)" />
+
+          <input type="text" placeholder=" Your Email *" />
+
+          <input type="text" placeholder="Tel *" />
+
           {/* <label htmlFor="user-type">User Type"</label> */}
-          <select name="user-type" id="user-type"><br />
+          <select name="user-type" id="user-type">
             <option value="User Type">User</option>
             <option value="corporate">corporate</option>
             <option value="Individual">Individual</option>
-          </select><br />
+          </select>
+
           {/* <label htmlFor="Licence-Status">Licence Status *</label> */}
           <select name="Licence" id="Licence">
             <option value="Licenced">Licenced</option>
             <option value="No Licence">No Licence</option>
-          </select><br />
+          </select>
+
           {/* <label htmlFor="user-type">Enquiry Type *</label> */}
           <select name="enquiry-type" id="enquiry-type">
             <option value="Buy-Firearms">Buy Firearms</option>
@@ -35,13 +41,14 @@ const Contact = () => {
             <option value="Buy-Accessories">Buy Accessories</option>
             <option value="Training-services">Training Services</option>
             <option value="General-enquiry">General Enquiry</option>
-          </select><br />
+          </select>
+
           <textarea placeholder="Message" />
           <button>Submit</button>
-
-
-         
         </div>
+      </div>
+      <div className="formik">
+        <Form />
       </div>
     </div>
   );
