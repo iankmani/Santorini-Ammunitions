@@ -1,0 +1,61 @@
+.services {
+  background-color: hsl(0, 0%, 6%);
+}
+.services-title h1 {
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  font-size: 3rem;
+  padding: 1rem;
+}
+.services-content p {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  padding: 1rem;
+  letter-spacing: 1.8px;
+}
+.service-box{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+
+}
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* border: 2px solid rgb(255, 255, 255); */
+  margin-top: 20px;
+  background-color: #191919;
+  border-radius: 20px;
+  width: 500px;
+  box-shadow: 12px 21px 37px -12px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 12px 21px 37px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 12px 21px 37px -12px rgba(0, 0, 0, 0.75);
+}
+.service-image {
+  width: 100%;
+  /* border: 2px solid red; */
+  border-radius: 20px;
+}
+.service-image-img {
+  width: 500px;
+  height: 450px;
+  border-radius: 20px;
+}
+.service-name h2 {
+  color: red;
+  font-weight: 300;
+  padding: 20px;
+}
+.service-description p {
+  color: #b2b2b2;
+  padding-left: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  padding-bottom: 10px;
+}

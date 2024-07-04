@@ -1,6 +1,7 @@
 .about {
   padding: 10px;
-  background-color: darkslategray;
+  /* background-color: darkslategray; */
+  background-color: #191919;
 }
 .about h1 {
   text-align: center;

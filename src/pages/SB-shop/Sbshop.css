@@ -1,11 +1,12 @@
-img{
-    width: 100%;
-    display: block;
-    height: 100%;
+img {
+  width: 100%;
+  display: block;
+  height: 100%;
 }
 .gun-shop {
   padding: 10px;
-  background-color: darkslategray;
+  /* background-color: darkslategray; */
+  background-color: #191919;
 }
 
 .gun-shop-title h1 {
@@ -23,17 +24,10 @@ img{
   letter-spacing: 1.8px;
 }
 
-
-
-.accessories-introductory-description p{
-    text-align: center;
-    color: white;
-    font-size: 1.2rem;
-    padding: 1rem;
-    letter-spacing: 1.8px;
-
-
+.accessories-introductory-description p {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  padding: 1rem;
+  letter-spacing: 1.8px;
 }
-
-
-
