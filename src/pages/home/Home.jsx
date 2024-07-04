@@ -26,7 +26,8 @@ function Home() {
             {" "}
             <Link to="/About">About Us</Link>
           </button>
-          <button className="btn2">OUR PRODUCTS</button>
+          <button className="btn2">
+            <Link to="/Sbshop">OUR PRODUCTS</Link></button>
         </div>
       </div>
     </div>

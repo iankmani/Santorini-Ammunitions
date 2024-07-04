@@ -29,7 +29,12 @@ const Services = () => {
           </div>
           <div className="service-description">
             <p>
-              Safety is paramount at SA. Our dedicated team provides professional firearm training at our Karen range for all skill levels, catering to beginners and advanced marksmen. Our certified and experienced instructors guide you in developing essential skills and responsible firearm handling, ensuring your safety and proficiency in weapon maintenance.
+              Safety is paramount at SA. Our dedicated team provides
+              professional firearm training at our Karen range for all skill
+              levels, catering to beginners and advanced marksmen. Our certified
+              and experienced instructors guide you in developing essential
+              skills and responsible firearm handling, ensuring your safety and
+              proficiency in weapon maintenance.
             </p>
           </div>
         </div>
@@ -42,7 +47,13 @@ const Services = () => {
           </div>
           <div className="service-description">
             <p>
-            We understand the importance of secure firearm and ammunition storage. All Firearm License Holders must adhere to legal requirements related to storage. For those times when you need to store your firearms and ammunition off-site, we offer a safe and controlled storage facility. It accommodates legally possessed handguns, rifles, shotguns, airsoft rifles, paintball guns, and ammunition.
+              We understand the importance of secure firearm and ammunition
+              storage. All Firearm License Holders must adhere to legal
+              requirements related to storage. For those times when you need to
+              store your firearms and ammunition off-site, we offer a safe and
+              controlled storage facility. It accommodates legally possessed
+              handguns, rifles, shotguns, airsoft rifles, paintball guns, and
+              ammunition.
             </p>
           </div>
         </div>
@@ -55,7 +66,13 @@ const Services = () => {
           </div>
           <div className="service-description">
             <p>
-            Count on our in-house services for routine maintenance, identification of defective parts, and expert repair. Additionally, our team can visit corporate sites to review and audit firearms for maintenance. When it comes to firearms under the manufacturer's warranty, we handle all interactions with the Original Equipment Manufacturer and manage the shipping process for in-warranty repairs.
+              Count on our in-house services for routine maintenance,
+              identification of defective parts, and expert repair.
+              Additionally, our team can visit corporate sites to review and
+              audit firearms for maintenance. When it comes to firearms under
+              the manufacturer's warranty, we handle all interactions with the
+              Original Equipment Manufacturer and manage the shipping process
+              for in-warranty repairs.
             </p>
           </div>
         </div>
