@@ -4,13 +4,15 @@ const prisma = new PrismaClient()
 
 export const createUser = async (req , res) =>{
     try{
-        const {firstname,lastname, email, password} = req.body;
+        const {firstname,lastname, email, licence, tel, password} = req.body;
         const hashedPassword = bcrypt.hashSync(password, 10);
-        const newUser = await prisma.user.create({
+        const newUserform = await prisma.Form.create({
             data: {
                 firstname: firstname,
                 lastname: lastname,
                 email: email,
+                licence: licence,
+                tel: tel,
                 password: hashedPassword,
                 },
                 select: {
@@ -18,9 +20,11 @@ export const createUser = async (req , res) =>{
                     firstname: true,
                     lastname: true,
                     email: true,
+                    licence: true,
+                    tel: true,
                     }
             });
-            res.status(200).json(newUser)
+            res.status(200).json(newUserform)
 
     
     

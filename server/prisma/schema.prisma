@@ -23,12 +23,14 @@ model weapons {
   @@map("Weapons_table")
 }
 
-model User {
+model Form {
   id        String @id @default(uuid())
   firstname String @map("first_name")
   lastname  String @map("last_name")
   email     String @unique @map("email")
+  licence   String @default("") @map("gun_licence")
+  tel       String @default("") @map("Phone_number")
   password  String @map("password")
 
-  @@map("Users_table")
+  @@map("Userform_table")
 }
