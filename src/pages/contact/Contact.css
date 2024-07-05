@@ -82,3 +82,6 @@
   background-color: red;
   cursor: pointer;
 }
+.contact-form-container p {
+  color: red;
+}
