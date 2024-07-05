@@ -31,6 +31,9 @@ model Form {
   licence   String @default("") @map("gun_licence")
   tel       String @default("") @map("Phone_number")
   password  String @map("password")
+  role      String @default("user") @map("role")
+  enquiry   String @default("Training services") @map("enquiry")
+  message   String @default("") @map("message")
 
   @@map("Userform_table")
 }

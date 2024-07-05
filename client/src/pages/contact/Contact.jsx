@@ -6,7 +6,11 @@ import { useFormik } from "formik";
 
 const Contact = () => {
   const validationSchema = Yup.object({
-    fullName: Yup.string("This Should consist of String Characters only")
+    firstName: Yup.string("This Should consist of String Characters only")
+      .required("This Field is Required")
+      .min(3, "This Field Should be at least 3 Characters long")
+      .max(15, "This Field Should be at most 15 Characters long"),
+    lastName: Yup.string("This Should consist of String Characters only")
       .required("This Field is Required")
       .min(3, "This Field Should be at least 3 Characters long")
       .max(15, "This Field Should be at most 15 Characters long"),
@@ -16,29 +20,57 @@ const Contact = () => {
     message: Yup.string("This Should consist of String Characters only")
       .min(10, "This Field Should be at least 10 Characters long")
       .max(100, "This Field Should be at most 100 Characters long"),
+
     tel: Yup.number("Enter your Phone Number")
-      .required("This Field is Required")
       .min(10, "This Field Should be at least 10 Characters long")
       .required("This Field is Required"),
+      password: Yup.string("this Should consist of String Characters only")
+      .required("This Field is Required")
+      .min(8, "This Field Should be at least 8 Characters long")
+      .max(15, "This Field Should be at most 15 Characters long"),
+      
+
     // Licence: Yup.boolean()
     // .oneOf([true], 'We only accept Licencend users')
-    // .required("This Field is Required")
+    // .required("This Field is Required"),
+
+
   });
+  const handleSubmit = async (formValues) => {
+    try{
+      const response = await fetch("http://localhost:3000/api/forms/apply", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formValues),
+          });
+          const data = await response.json();
+          console.log(data);
+          }catch(error){
+            console.log(error);
+            }
+
+    }
+  
 
   const formik = useFormik({
     initialValues: {
-      fullName: "",
+      firstName: "",
+      lastName: "",
       email: "",
-      company: "",
+      licence: "",
       tel: "",
       role: "",
-      Licence: "",
+      // Licence: "",
       enquiry: "",
       message: "",
+      password: ""
     },
     onSubmit: (formSubmission) => {
-      console.log("Here is what the user has submitted");
-      console.log(formSubmission);
+      // console.log("Here is what the user has submitted");
+      // console.log(formSubmission);
+      handleSubmit(formSubmission);
     },
     validationSchema: validationSchema,
   });
@@ -54,28 +86,39 @@ const Contact = () => {
         </div>
         <div className="contact-form-container">
           <form onSubmit={formik.handleSubmit}>
-            <input
+          <input
               type="text"
-              placeholder="Full Name *"
-              name="fullName"
-              value={formik.values.fullName}
+              placeholder="First Name *"
+              name="firstName"
+              value={formik.values.firstName}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.fullName && formik.errors.fullName && (
-              <p>{formik.errors.fullName}</p>
+            {formik.touched.firstName && formik.errors.firstName && (
+              <p>{formik.errors.firstName}</p>
+            )}
+            <input
+              type="text"
+              placeholder="Last Name *"
+              name="lastName"
+              value={formik.values.lastName}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.lastName && formik.errors.lastName && (
+              <p>{formik.errors.lastName}</p>
             )}
 
             <input
               type="text"
-              placeholder="Company (if applicable)"
-              name="company"
-              value={formik.values.company}
+              placeholder="Gun Licence (if applicable)"
+              name="licence"
+              value={formik.values.licence}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.company && formik.errors.company && (
-              <p>{formik.errors.company}</p>
+            {formik.touched.licence && formik.errors.licence && (
+              <p>{formik.errors.licence}</p>
             )}
 
             <input
@@ -119,7 +162,7 @@ const Contact = () => {
             )}
 
             {/* <label htmlFor="Licence-Status">Licence Status *</label> */}
-            <select
+            {/* <select
               name="Licence"
               id="Licence"
               value={formik.values.Licence}
@@ -131,7 +174,7 @@ const Contact = () => {
             </select>
             {formik.touched.Licence && formik.errors.Licence && (
               <p>{formik.errors.Licence}</p>
-            )}
+            )} */}
 
             {/* <label htmlFor="user-type">Enquiry Type *</label> */}
             <select
@@ -160,6 +203,17 @@ const Contact = () => {
             />
             {formik.touched.message && formik.errors.message && (
               <p>{formik.errors.message}</p>
+            )}
+            <input
+              type="password"
+              placeholder="password *"
+              name="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.password && formik.errors.password && (
+              <p>{formik.errors.password}</p>
             )}
             <button type="submit">Submit</button>
           </form>
