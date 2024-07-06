@@ -2,6 +2,7 @@ import React from "react";
 import "./Contact.css";
 // import Form from "../../Parts/Form/Form.jsx";
 import Signup from "../../Parts/signup/Signup.jsx";
+import Login from "../../Parts/Login/Login.jsx";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
@@ -223,6 +224,7 @@ const Contact = () => {
         <Form />
       </div> */}
       <Signup/>
+      <Login/>
     </div>
   );
 };

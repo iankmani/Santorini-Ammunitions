@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcrypt";
-const prisma = new PrismaClient();
+import { createnewform, getallsignedupusers } from "../Controllers/signup.controllers.js";
+
 
 
 const router = Router();
 
-router.post("api/users/signup", (req, res) =>   {
-    res.send("signup");
-})
+router.post("/signup", createnewform )
+router.get('/signup', getallsignedupusers)
+    
+
 export default router;
