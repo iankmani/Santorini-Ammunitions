@@ -1,6 +1,7 @@
 import React from "react";
 import "./Contact.css";
 // import Form from "../../Parts/Form/Form.jsx";
+import Signup from "../../Parts/signup/Signup.jsx";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
@@ -36,22 +37,7 @@ const Contact = () => {
 
 
   });
-  const handleSubmit = async (formValues) => {
-    try{
-      const response = await fetch("http://localhost:3000/api/forms/apply", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formValues),
-          });
-          const data = await response.json();
-          console.log(data);
-          }catch(error){
-            console.log(error);
-            }
-
-    }
+ 
   
 
   const formik = useFormik({
@@ -73,6 +59,21 @@ const Contact = () => {
       handleSubmit(formSubmission);
     },
     validationSchema: validationSchema,
+    onSubmit: async (values) => {
+      try {
+        const response = await fetch("http://localhost:3000/api/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        });
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error("Error during sign-up:", error);
+      }
+    },
   });
 
   return (
@@ -94,9 +95,8 @@ const Contact = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.firstName && formik.errors.firstName && (
-              <p>{formik.errors.firstName}</p>
-            )}
+            {formik.touched.firstName && formik.errors.firstName && 
+              <p>{formik.errors.firstName}</p>}
             <input
               type="text"
               placeholder="Last Name *"
@@ -105,9 +105,9 @@ const Contact = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.lastName && formik.errors.lastName && (
+            {formik.touched.lastName && formik.errors.lastName && 
               <p>{formik.errors.lastName}</p>
-            )}
+            }
 
             <input
               type="text"
@@ -117,9 +117,9 @@ const Contact = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.licence && formik.errors.licence && (
+            {formik.touched.licence && formik.errors.licence && 
               <p>{formik.errors.licence}</p>
-            )}
+            }
 
             <input
               type="text"
@@ -129,9 +129,9 @@ const Contact = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.email && formik.errors.email && (
+            {formik.touched.email && formik.errors.email && 
               <p>{formik.errors.email}</p>
-            )}
+            }
 
             <input
               type="text"
@@ -141,14 +141,14 @@ const Contact = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.tel && formik.errors.tel && (
+            {formik.touched.tel && formik.errors.tel && 
               <p>{formik.errors.tel}</p>
-            )}
+            }
 
             {/* <label htmlFor="user-type">User Type"</label> */}
             <select
               name="role"
-              id="user-type"
+              id="role"
               value={formik.values.role}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -157,9 +157,9 @@ const Contact = () => {
               <option value="corporate">corporate</option>
               <option value="Individual">Individual</option>
             </select>
-            {formik.touched.role && formik.errors.role && (
+            {formik.touched.role && formik.errors.role && 
               <p>{formik.errors.role}</p>
-            )}
+            }
 
             {/* <label htmlFor="Licence-Status">Licence Status *</label> */}
             {/* <select
@@ -179,7 +179,7 @@ const Contact = () => {
             {/* <label htmlFor="user-type">Enquiry Type *</label> */}
             <select
               name="enquiry"
-              id="enquiry-type"
+              id="enquiry"
               value={formik.values.enquiry}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -190,9 +190,9 @@ const Contact = () => {
               <option value="Training-services">Training Services</option>
               <option value="General-enquiry">General Enquiry</option>
             </select>
-            {formik.touched.enquiry && formik.errors.enquiry && (
+            {formik.touched.enquiry && formik.errors.enquiry && 
               <p>{formik.errors.enquiry}</p>
-            )}
+            }
 
             <textarea
               placeholder="Message"
@@ -212,9 +212,9 @@ const Contact = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.password && formik.errors.password && (
+            {formik.touched.password && formik.errors.password && 
               <p>{formik.errors.password}</p>
-            )}
+            }
             <button type="submit">Submit</button>
           </form>
         </div>
@@ -222,6 +222,7 @@ const Contact = () => {
       {/* <div className="formik">
         <Form />
       </div> */}
+      <Signup/>
     </div>
   );
 };

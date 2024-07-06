@@ -1,8 +1,8 @@
-import express from 'express'
-import {config} from 'dotenv'
-import usersRouter from '../server/Routes/users.routes.js'
-import cors from 'cors'
-
+import express from "express";
+import { config } from "dotenv";
+import usersRouter from "../server/Routes/users.routes.js";
+import signupRouter from "../server/Routes/signup.routes.js";
+import cors from "cors";
 
 const app = express();
 const port = 3000;
@@ -10,13 +10,13 @@ config();
 
 app.use(express.json());
 const corsOptions = {
-    origin: 'http://localhost:5174',  
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, 
-    optionsSuccessStatus: 204
-  };
-  
-  app.use(cors(corsOptions));
+  origin: "http://localhost:5173",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 // app.use(cors({
 //     origin: 'http://localhost:5174/Contact'
 // }));
@@ -26,9 +26,29 @@ const corsOptions = {
 // }));
 // app.use(express.urlencoded({extended: true}))
 
-app.use("/api/forms", usersRouter)
+app.use("/api/forms", usersRouter);
+app.post("/api/signup", async (req, res) => {
+  const { firstName, lastName, email, password, phoneNumber } = req.body;
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
 
+    const newUser = await prisma.user.create({
+      data: {
+        firstName,
+        lastName,
+        email,
+        password: hashedPassword,
+        phoneNumber,
+      },
+    });
 
-app.listen(port, ()=>{
-    console.log(`Server is running on port ${port}`)
-})
+    res.status(201).json(newUser);
+  } catch (error) {
+    console.error("Error during user creation:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
