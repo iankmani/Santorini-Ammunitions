@@ -14,9 +14,9 @@ export const createForm = async (req, res) => {
       enquiry,
       message,
       tel,
-      password,
+
     } = req.body;
-    const hashedPassword = bcrypt.hashSync(password, 10);
+    
     const newUserform = await prisma.form.create({
       data: {
         firstname: firstname,
@@ -27,7 +27,10 @@ export const createForm = async (req, res) => {
         enquiry: enquiry,
         message: message,
         role: role,
-        password: hashedPassword,
+
+
+
+
       },
       // select: {
       //   id: true,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -6,6 +6,8 @@ import "./Signup.css";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
+  const [loading, setLoading] =useState(false);
  
     const validationSchema = Yup.object({
         firstname: Yup.string()
@@ -32,9 +34,13 @@ const Signup = () => {
     
       })
       
+      
       const handleSubmit =async (values) => {
         console.log(values);
         try {
+          setLoading(true)
+          setError(null)
+
           const response = await fetch("http://localhost:3000/api/users/signup", {
             method: "POST",
             headers: {
@@ -53,7 +59,13 @@ const Signup = () => {
           console.error("Error during sign-up:", error);
           alert("An error occurred during sign-up");
         }
+        finally{
+          setLoading(false)
+
+        }
+
       }
+
 
 
     
@@ -155,7 +167,8 @@ const Signup = () => {
                 <div className="error">{formik.errors.phoneNumber}</div>
               ) : null}
             </div>
-            <button type="submit">Sign Up</button>
+            <button type="submit" >Sign Up</button>
+            <p>{loading} </p>
           </form>
         </div>
       );

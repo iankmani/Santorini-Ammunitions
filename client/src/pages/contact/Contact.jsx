@@ -75,7 +75,8 @@ const Contact = () => {
       // Licence: "",
       enquiry: "",
       message: "",
-      password: ""
+      // password: ""
+      
     },
     onSubmit: (formSubmission) => {
       // console.log("Here is what the user has submitted");
@@ -214,7 +215,7 @@ const Contact = () => {
             {formik.touched.message && formik.errors.message && (
               <p>{formik.errors.message}</p>
             )}
-            <input
+            {/* <input
               type="password"
               placeholder="password *"
               name="password"
@@ -224,7 +225,7 @@ const Contact = () => {
             />
             {formik.touched.password && formik.errors.password && 
               <p>{formik.errors.password}</p>
-            }
+            } */}
             <button type="submit">Submit</button>
           </form>
         </div>
