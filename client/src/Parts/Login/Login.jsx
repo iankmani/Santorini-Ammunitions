@@ -1,10 +1,12 @@
 import React from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 
 const Login = () => {
+    const navigate = useNavigate();
     const validationSchema = Yup.object({
         email: Yup.string()
           .email("Invalid email address")
@@ -16,7 +18,7 @@ const Login = () => {
     
       const handleSubmit = async (values) => {
         try {
-          const response = await fetch("http://localhost:3000/api/login", {
+          const response = await fetch("http://localhost:3000/api/users/login", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -25,6 +27,9 @@ const Login = () => {
           });
           const data = await response.json();
           console.log(data);
+          if (data.message === "Login successful"){
+            navigate("/Home")
+          }
         } catch (error) {
           console.error("Error:", error);
         }
@@ -36,8 +41,9 @@ const Login = () => {
           password: "",
         },
         validationSchema: validationSchema,
+
         onSubmit: handleSubmit,
-      });
+    });
   return (
     <div className="signup-form">
           <h1>Log in</h1>

@@ -13,7 +13,7 @@ const Header = () => {
         <div className="header-links">
           <ol className="list">
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/Home">Home</Link>
             </li>
             <li>
               <Link to="/About">About Us</Link>

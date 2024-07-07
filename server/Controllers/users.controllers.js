@@ -29,19 +29,20 @@ export const createForm = async (req, res) => {
         role: role,
         password: hashedPassword,
       },
-      select: {
-        id: true,
-        firstName: true,
-        lastName: true,
-        email: true,
-        licence: true,
-        tel: true,
-        enquiry: true,
-        message: true,
-        role: true,
-      },
+      // select: {
+      //   id: true,
+      //   firstname: true,
+      //   lastname: true,
+      //   email: true,
+      //   licence: true,
+      //   tel: true,
+      //   enquiry: true,
+      //   message: true,
+      //   role: true,
+      // },
     });
-    res.status(200).json(newUserform);
+    res.status(200).json({message: "You have successfully booked an appointment, please check your email for further information", newUserform})
+    // res.status(200).json(newUserform);
 
     // res.send("register user")
   } catch (err) {

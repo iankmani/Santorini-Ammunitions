@@ -1,18 +1,21 @@
 import React from "react";
 import "./Contact.css";
+// import { useNavigate } from "react-router-dom";
 // import Form from "../../Parts/Form/Form.jsx";
-import Signup from "../../Parts/signup/Signup.jsx";
-import Login from "../../Parts/Login/Login.jsx";
+
+
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
 const Contact = () => {
+  // const navigate = useNavigate();
+
   const validationSchema = Yup.object({
-    firstName: Yup.string("This Should consist of String Characters only")
+    firstname: Yup.string("This Should consist of String Characters only")
       .required("This Field is Required")
       .min(3, "This Field Should be at least 3 Characters long")
       .max(15, "This Field Should be at most 15 Characters long"),
-    lastName: Yup.string("This Should consist of String Characters only")
+    lastname: Yup.string("This Should consist of String Characters only")
       .required("This Field is Required")
       .min(3, "This Field Should be at least 3 Characters long")
       .max(15, "This Field Should be at most 15 Characters long"),
@@ -38,13 +41,33 @@ const Contact = () => {
 
 
   });
+  const handleSubmit = async (formValues) => {
+    try {
+      const response = await fetch("http://localhost:3000/api/forms/apply", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formValues),
+      });
+      const data = await response.json();
+      console.log(data);
+      if(data.message === "You have successfully booked an appointment, please check your email for further information"){
+        alert("You have successfully booked an appointment, please check your email for further information. You can exit the Website. ")
+      }
+
+    } catch (error) {
+      console.error("Error during sign-up:", error);
+    }
+  }
+  
  
   
 
   const formik = useFormik({
     initialValues: {
-      firstName: "",
-      lastName: "",
+      firstname: "",
+      lastname: "",
       email: "",
       licence: "",
       tel: "",
@@ -60,21 +83,7 @@ const Contact = () => {
       handleSubmit(formSubmission);
     },
     validationSchema: validationSchema,
-    onSubmit: async (values) => {
-      try {
-        const response = await fetch("http://localhost:3000/api/signup", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(values),
-        });
-        const data = await response.json();
-        console.log(data);
-      } catch (error) {
-        console.error("Error during sign-up:", error);
-      }
-    },
+  
   });
 
   return (
@@ -91,23 +100,23 @@ const Contact = () => {
           <input
               type="text"
               placeholder="First Name *"
-              name="firstName"
-              value={formik.values.firstName}
+              name="firstname"
+              value={formik.values.firstname}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.firstName && formik.errors.firstName && 
-              <p>{formik.errors.firstName}</p>}
+            {formik.touched.firstname && formik.errors.firstname && 
+              <p>{formik.errors.firstname}</p>}
             <input
               type="text"
               placeholder="Last Name *"
-              name="lastName"
-              value={formik.values.lastName}
+              name="lastname"
+              value={formik.values.lastname}
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
-            {formik.touched.lastName && formik.errors.lastName && 
-              <p>{formik.errors.lastName}</p>
+            {formik.touched.lastname && formik.errors.lastname && 
+              <p>{formik.errors.lastname}</p>
             }
 
             <input
@@ -223,8 +232,8 @@ const Contact = () => {
       {/* <div className="formik">
         <Form />
       </div> */}
-      <Signup/>
-      <Login/>
+      
+      
     </div>
   );
 };

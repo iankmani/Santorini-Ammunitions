@@ -1,16 +1,18 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./Signup.css";
 
 const Signup = () => {
+  const navigate = useNavigate();
  
     const validationSchema = Yup.object({
-        firstName: Yup.string()
+        firstname: Yup.string()
           .required("First Name is required")
           .min(2, "First Name should be at least 2 characters")
           .max(50, "First Name should be at most 50 characters"),
-        lastName: Yup.string()
+        lastname: Yup.string()
           .required("Last Name is required")
           .min(2, "Last Name should be at least 2 characters")
           .max(50, "Last Name should be at most 50 characters"),
@@ -29,13 +31,36 @@ const Signup = () => {
           .matches(/^[0-9]{10}$/, "Phone Number should be 10 digits"),
     
       })
+      
+      const handleSubmit =async (values) => {
+        console.log(values);
+        try {
+          const response = await fetch("http://localhost:3000/api/users/signup", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+          });
+          const data = await response.json();
+          console.log(data);
+          if  (data.message === "Signup successful") {
+            navigate("/login");
+            } else {
+              alert(data.message || "sign up failed");
+              }
+        } catch (error) {
+          console.error("Error during sign-up:", error);
+          alert("An error occurred during sign-up");
+        }
+      }
 
 
     
       const formik = useFormik({
         initialValues: {
-          firstName: "",
-          lastName: "",
+          firstname: "",
+          lastname: "",
           email: "",
           password: "",
           confirmPassword: "",
@@ -43,22 +68,8 @@ const Signup = () => {
         },
         validationSchema: validationSchema,
 
-        onSubmit: async (values) => {
-            console.log(values);
-            // try {
-            //   const response = await fetch("http://localhost:3000/api/signup", {
-            //     method: "POST",
-            //     headers: {
-            //       "Content-Type": "application/json",
-            //     },
-            //     body: JSON.stringify(values),
-            //   });
-            //   const data = await response.json();
-            //   console.log(data);
-            // } catch (error) {
-            //   console.error("Error during sign-up:", error);
-            // }
-          },
+        onSubmit: handleSubmit
+        
       });
 
     
@@ -69,27 +80,27 @@ const Signup = () => {
             <div>
               <input
                 type="text"
-                name="firstName"
+                name="firstname"
                 placeholder="First Name"
-                value={formik.values.firstName}
+                value={formik.values.firstname || ""}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-              {formik.touched.firstName && formik.errors.firstName ? (
-                <div className="error">{formik.errors.firstName}</div>
+              {formik.touched.firstname && formik.errors.firstname ? (
+                <div className="error">{formik.errors.firstname}</div>
               ) : null}
             </div>
             <div>
               <input
                 type="text"
-                name="lastName"
+                name="lastname"
                 placeholder="Last Name"
-                value={formik.values.lastName}
+                value={formik.values.lastname || ""}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
-              {formik.touched.lastName && formik.errors.lastName ? (
-                <div className="error">{formik.errors.lastName}</div>
+              {formik.touched.lastname && formik.errors.lastname ? (
+                <div className="error">{formik.errors.lastname}</div>
               ) : null}
             </div>
             <div>
@@ -97,7 +108,7 @@ const Signup = () => {
                 type="email"
                 name="email"
                 placeholder="Email"
-                value={formik.values.email}
+                value={formik.values.email || ""}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
@@ -110,7 +121,7 @@ const Signup = () => {
                 type="password"
                 name="password"
                 placeholder="Password"
-                value={formik.values.password}
+                value={formik.values.password || ""}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
@@ -136,7 +147,7 @@ const Signup = () => {
                 type="text"
                 name="phoneNumber"
                 placeholder="Phone Number"
-                value={formik.values.phoneNumber}
+                value={formik.values.phoneNumber || ""}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />

@@ -24,7 +24,8 @@ export const createnewform = async (req, res) =>{
                 phoneNumber: phoneNumber
                 }
                 });
-                res.status(201).json(newform);    
+                res.status(201).json({ message: 'Signup successful', newform });
+                // res.status(201).json(newform);    
     }catch(e){
         res.status(500).json({message: e.message});
     }
@@ -35,10 +36,10 @@ export const createnewform = async (req, res) =>{
 }
 export const getallsignedupusers = async (req, res) => {
     try {
-      const users = await prisma.signUp.findMany(); // Fetch all users
-      res.json(users); // Send JSON response with users array
+      const users = await prisma.signUp.findMany(); 
+      res.json(users); 
     } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Internal server error' });
+      res.status(500).json(error.message);
     }
   };
