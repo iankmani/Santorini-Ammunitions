@@ -1,14 +1,14 @@
 import React from "react";
 import "./Contact.css";
-import { apiUrl } from "../../Utils/congig";
-
+// import { useNavigate } from "react-router-dom";
+// import Form from "../../Parts/Form/Form.jsx";
 
 
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
 const Contact = () => {
- 
+  // const navigate = useNavigate();
 
   const validationSchema = Yup.object({
     firstname: Yup.string("This Should consist of String Characters only")
@@ -43,7 +43,7 @@ const Contact = () => {
   });
   const handleSubmit = async (formValues) => {
     try {
-      const response = await fetch(`${apiUrl}/api/forms/apply`, {
+      const response = await fetch("http://localhost:3000/api/forms/apply", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,12 +72,14 @@ const Contact = () => {
       licence: "",
       tel: "",
       role: "",
+      // Licence: "",
       enquiry: "",
       message: ""
       
-      
     },
     onSubmit: (formSubmission) => {
+      // console.log("Here is what the user has submitted");
+      // console.log(formSubmission);
       handleSubmit(formSubmission);
     },
     validationSchema: validationSchema,
@@ -169,7 +171,22 @@ const Contact = () => {
               <p>{formik.errors.role}</p>
             }
 
-            
+            {/* <label htmlFor="Licence-Status">Licence Status *</label> */}
+            {/* <select
+              name="Licence"
+              id="Licence"
+              value={formik.values.Licence}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            >
+              <option value="Licenced">Licenced</option>
+              <option value="No Licence">No Licence</option>
+            </select>
+            {formik.touched.Licence && formik.errors.Licence && (
+              <p>{formik.errors.Licence}</p>
+            )} */}
+
+            {/* <label htmlFor="user-type">Enquiry Type *</label> */}
             <select
               name="enquiry"
               id="enquiry"
@@ -197,12 +214,24 @@ const Contact = () => {
             {formik.touched.message && formik.errors.message && (
               <p>{formik.errors.message}</p>
             )}
-            
+            <input
+              type="password"
+              placeholder="password *"
+              name="password"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.password && formik.errors.password && 
+              <p>{formik.errors.password}</p>
+            }
             <button type="submit">Submit</button>
           </form>
         </div>
       </div>
-      
+      {/* <div className="formik">
+        <Form />
+      </div> */}
       
       
     </div>
@@ -211,5 +240,11 @@ const Contact = () => {
 
 export default Contact;
 {
-  
+  /* <form>
+          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Email" />
+          <input type="text" placeholder="Subject" />
+          <textarea placeholder="Message" />
+          <button>Send</button>
+          </form>*/
 }
