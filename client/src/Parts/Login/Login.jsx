@@ -3,6 +3,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import { apiUrl } from "../../Utils/congig";
 
 
 const Login = () => {
@@ -18,7 +19,7 @@ const Login = () => {
     
       const handleSubmit = async (values) => {
         try {
-          const response = await fetch("http://localhost:3000/api/users/login", {
+          const response = await fetch(`${apiUrl}/api/users/login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -31,7 +32,7 @@ const Login = () => {
             navigate("/Home")
           }
         } catch (error) {
-          console.error("Error:", error);
+          console.error(error);
         }
       };
     

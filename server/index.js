@@ -29,7 +29,7 @@ app.use(cors(corsOptions));
 
 app.use("/api/forms", usersRouter);
 app.use("/api/users", signupRouter);
-app.use("/api/users", loginRouter)
+app.use("/api/users", loginRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

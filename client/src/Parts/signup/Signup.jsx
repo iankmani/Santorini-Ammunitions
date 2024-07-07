@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./Signup.css";
+import { apiUrl } from '../../Utils/congig.js';
+
+// const apiUrl = import.meta.env.VITE_API_URL_ROOT;
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -39,9 +42,9 @@ const Signup = () => {
         console.log(values);
         try {
           setLoading(true)
-          setError(null)
+          setError(false)
 
-          const response = await fetch("http://localhost:3000/api/users/signup", {
+          const response = await fetch(`${apiUrl}/api/users/signup`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

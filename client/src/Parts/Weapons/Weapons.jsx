@@ -1,5 +1,6 @@
 import React from "react";
 import "./Weapons.css";
+import { Link } from "react-router-dom";
 import handgun from "../../assets/pics/handgun.jpeg";
 import shotgun from "../../assets/pics/shotgun.jpeg";
 import rifle from "../../assets/pics/rifle.jpeg";
@@ -19,7 +20,7 @@ const Weapons = () => {
         </div>
         <div className="weapon-price">
           <h3>price: Ksh 3,500 per day</h3>
-          <button>Hire</button>
+          <Link to="/contact"><button>Book</button></Link>
         </div>
       </div>
       <div className="weapon">
@@ -31,7 +32,7 @@ const Weapons = () => {
         </div>
         <div className="weapon-price">
           <h3>price: Ksh 6,000 per day</h3>
-          <button>Hire</button>
+          <Link to="/contact"><button>Book</button></Link>
         </div>
       </div>
       <div className="weapon">
@@ -43,7 +44,7 @@ const Weapons = () => {
         </div>
         <div className="weapon-price">
           <h3>price: Ksh 10,000 per day</h3>
-          <button>Hire</button>
+          <Link to="/contact"><button>Book</button></Link>
         </div>
       </div>
       <div className="weapon">
@@ -55,7 +56,7 @@ const Weapons = () => {
         </div>
         <div className="weapon-price">
           <h3>price: Ksh 7,000 per day</h3>
-          <button>Hire</button>
+          <Link to="/contact"><button>Book</button></Link>
         </div>
       </div>
       <div className="weapon">
@@ -67,7 +68,7 @@ const Weapons = () => {
         </div>
         <div className="weapon-price">
           <h3>price: Ksh 2000 per box</h3>
-          <button>Hire</button>
+          <Link to="/contact"><button>Book</button></Link>
         </div>
       </div>
       <div className="weapon">
@@ -79,7 +80,7 @@ const Weapons = () => {
         </div>
         <div className="weapon-price">
           <h3>FREE </h3>
-          <button>Hire</button>
+          <Link to="/contact"><button>Book</button></Link>
         </div>
       </div>
     </div>

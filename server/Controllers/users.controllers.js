@@ -28,26 +28,11 @@ export const createForm = async (req, res) => {
         message: message,
         role: role,
 
-
-
-
       },
-      // select: {
-      //   id: true,
-      //   firstname: true,
-      //   lastname: true,
-      //   email: true,
-      //   licence: true,
-      //   tel: true,
-      //   enquiry: true,
-      //   message: true,
-      //   role: true,
-      // },
+    
     });
     res.status(200).json({message: "You have successfully booked an appointment, please check your email for further information", newUserform})
-    // res.status(200).json(newUserform);
-
-    // res.send("register user")
+    
   } catch (err) {
     res.status(500).json(err.message);
   }
