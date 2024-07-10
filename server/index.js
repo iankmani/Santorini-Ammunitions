@@ -3,6 +3,7 @@ import { config } from "dotenv";
 import usersRouter from "../server/Routes/users.routes.js";
 import signupRouter from "../server/Routes/signup.routes.js";
 import loginRouter from "../server/Routes/login.routes.js";
+import bookingRouter from '../server/Routes/booking.routes.js'
 import cors from "cors";
 
 const app = express();
@@ -30,6 +31,7 @@ app.use(cors(corsOptions));
 app.use("/api/forms", usersRouter);
 app.use("/api/users", signupRouter);
 app.use("/api/users", loginRouter);
+app.use("/api/users", bookingRouter)
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

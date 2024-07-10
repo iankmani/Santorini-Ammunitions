@@ -80,7 +80,7 @@ const Weapons = () => {
         </div>
         <div className="weapon-price">
           <h3>FREE </h3>
-          <Link to="/contact"><button>Book</button></Link>
+          {/* <Link to="/contact"><button>Book</button></Link> */}
         </div>
       </div>
     </div>

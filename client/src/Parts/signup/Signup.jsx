@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./Signup.css";
@@ -54,6 +54,7 @@ const Signup = () => {
           const data = await response.json();
           console.log(data);
           if  (data.message === "Signup successful") {
+            alert("signed up successfully")
             navigate("/login");
             } else {
               alert(data.message || "sign up failed");
@@ -171,7 +172,7 @@ const Signup = () => {
               ) : null}
             </div>
             <button type="submit" >Sign Up</button>
-            <p>{loading} </p>
+            <p>Already have an Account?<Link to="/Login">login</Link></p>
           </form>
         </div>
       );

@@ -18,7 +18,7 @@ model weapons {
   WeaponName        String @map("Weapon_name")
   WeaponType        String @map("Weapon_type")
   WeaponDescription String @map("Weapon_description")
-  WeaponCost        BigInt @map("Weapon_cost")
+  WeaponCost        String @map("Weapon_cost")
 
   @@map("Weapons_table")
 }
@@ -57,4 +57,16 @@ model Login {
   password String
 
   @@map("Login_table")
+}
+
+model Booking {
+  id         String   @id @default(uuid())
+  product    String
+  email      String
+  quantity   String
+  totalPrice String   @map("Total_Price")
+  payment    String   @map("Payment_method")
+  date       DateTime @map("Date_of_booking")
+
+  @@map("booking_table")
 }
